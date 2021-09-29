@@ -1,0 +1,67 @@
+.logo{
+ height: 80px;
+}
+header{
+    border-bottom: 1px solid orange;
+}
+.card-calc{
+  width: 300px;
+  height: 300px;
+    margin: auto ;
+    
+    border-radius: 18px;
+    background: #e0e0e0;
+    box-shadow:  41px 41px 82px #7d7d7d,
+                 -41px -41px 82px #ffffff; 
+}
+ .form-div
+{
+ /* margin-left: 12%; */
+ margin-top: 15%;
+ margin-bottom: 10%;
+
+} 
+
+ .form-control{
+  
+    margin: auto;
+    max-width: 80%;
+    background: #e0e0e0;
+    border-style: none;
+    border-bottom:1px solid orange;
+}
+.form-control:active{
+    margin: auto;
+    max-width: 80%;
+    background: #e0e0e0;
+    
+}
+select{
+    width: 80%;
+}
+button {
+border: none;
+margin-top:10%;
+background: #FF512F;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F09819, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F09819, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+color: white;
+height: 30px;
+width: 50px;
+border-radius:5px;
+margin-left:40%;
+}
+
+.chart
+{
+    max-height: 50px;
+}
+.chart-div{
+    
+}
+section{
+    margin-top: 5%;
+}
+table{
+    margin-bottom:30%;
+}
