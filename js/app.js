@@ -6,24 +6,63 @@ const tbody = document.getElementById("tbody");
 
 
 //variable declaration
-let transaction=[];
-let Id=0;
-let counter=1;
+let Id;
+let transaction;
+let counter;
+let foodex=0;
+let clothex=0;
+let otherex=0;
 
 
+//load from local storage
+let data = localStorage.getItem("warehouse");
+if(data){
+   
+ transaction=JSON.parse(data);
+ Id = transaction.length;
+ transaction.forEach((item)=>{
+     if(item.expense){
+         addEx(item.amount, item.category, item.description)
+     }else if(item.income){
+         addIn(item.amount, item.category, item.description)
+     }
+ })
+}else{
+
+transaction=[];
+ Id=0;
+ counter=1;
+
+}
 //collect expense event
 
 exBtn.addEventListener("click",(arg)=>{
  let ex_amount=document.getElementById("ex-amount").value;
- let ex_category=document.getElementById("category-ex").value;
+ let ex_category=document.getElementById("ex-category").value;
  let ex_desc = document.getElementById("ex-description").value;
  if(ex_amount=="" || ex_category=="" || ex_desc==""){
     alert("enter appropriate values")
 }else{
     let amount= parseInt(ex_amount);
+     // add to variable
+     transaction.push({
+        amount:amount,
+        category:ex_category,
+        description:ex_desc,
+        id:Id,
+        expense:true,
+        income:false
+    });
+    Id++;
     
+    localStorage.setItem("warehouse", JSON.stringify(transaction));
+
+    Id++;
 
     addEx(amount, ex_category,ex_desc);
+    alert("added succesfully")
+
+window.location.reload();
 
 }
 })
@@ -37,8 +76,20 @@ inBtn.addEventListener("click",(arg)=>{
    }else{
         in_amount= parseInt(in_amount);
        
-   
+        transaction.push({
+            amount:in_amount,
+            category:in_category,
+            description:in_desc,
+            id:Id,
+            expense:false,
+            income:true
+        });
+        localStorage.setItem("warehouse", JSON.stringify(transaction));
+        Id++;
+
        addIn(in_amount, in_category,in_desc);
+
+       alert("added succesfully")
    
    }
    })
@@ -49,50 +100,48 @@ function addEx(amount,category,description){
     //dom manipulation
     const item =`
    <tr>
-                    <th scope="row">${counter}</th>
-                    <td style="color:green;">${amount}</td>
-                    <td>${category}</td>
-                    <td>${description}</td>
+                   
+                    <td style="color:red;"  class="text-center">${amount}</td>
+                    <td  class="text-center">${category}</td>
+                    <td  class="text-center">${description}</td>
                   </tr>
    `;
    tbody.insertAdjacentHTML("beforeend",item);
    counter++;
-    // add to variable 
-    transaction.push({
-        amount:amount,
-        category:category,
-        description:description,
-        id:Id,
-        expense:true,
-        income:false
-    });
-    Id++;
-
+   if(category=="food"){
+       foodex=foodex+parseInt(amount);
+       console.log(foodex)
+   }
+   if(category=="clothes"){
+    clothex=clothex+parseInt(amount);
+    console.log(clothex)
+}
+if(category=="other"){
+   otherex=otherex+parseInt(amount);
+    console.log(clothex)
 }
 
+
+}
+// add income function
 function addIn(amount,category,description){
      //dom manipulation
      const item =`
    <tr>
-                    <th scope="row">${counter}</th>
-                    <td style="color:red;">${amount}</td>
-                    <td>${category}</td>
-                    <td>${description}</td>
+               
+                    <td style="color:green;"  class="text-center">${amount}</td>
+                    <td  class="text-center">${category}</td>
+                    <td class="text-center">${description}</td>
                   </tr>
    `;
    tbody.insertAdjacentHTML("beforeend",item);
    counter++;
 
-    // add to variable
-    transaction.push({
-        amount:amount,
-        category:category,
-        description:description,
-        id:Id,
-        expense:false,
-        income:true
-    });
-    Id++;
+
+   
 
     
 }
+
+//add local storage function
+

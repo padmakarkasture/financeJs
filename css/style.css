@@ -1,5 +1,9 @@
 .logo{
- height: 80px;
+ height: 60px;
+ background-color: white;
+}
+body{font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 header{
     border-bottom: 1px solid orange;
@@ -10,23 +14,27 @@ header{
     margin: auto ;
     
     border-radius: 18px;
-    background: #e0e0e0;
-    box-shadow:  41px 41px 82px #7d7d7d,
-                 -41px -41px 82px #ffffff; 
+    background: white;
+    box-shadow:  21px 21px 42px #7d7d7d,
+                 -41px -21px 42px #ffffff; 
 }
  .form-div
 {
  /* margin-left: 12%; */
- margin-top: 15%;
+ margin-top: 10%;
  margin-bottom: 10%;
 
 } 
+h5{
+    margin-left: 10%;
+    color: orangered;
+}
 
  .form-control{
   
     margin: auto;
     max-width: 80%;
-    background: #e0e0e0;
+    background: white;
     border-style: none;
     border-bottom:1px solid orange;
 }
@@ -56,12 +64,25 @@ margin-left:40%;
 {
     max-height: 50px;
 }
-.chart-div{
-    
-}
+
 section{
     margin-top: 5%;
 }
 table{
     margin-bottom:30%;
+}
+main{
+    margin-bottom:10%;
+}
+@media only screen and (max-width: 600px){
+    body{
+        overflow-x: hidden;
+    }
+    .chart-div{
+    order:2;
+    }
+    .card-calc{
+        margin-top: 10%;
+        margin-right: none;
+    }
 }
