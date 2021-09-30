@@ -1,5 +1,5 @@
 
-# expense manager
+# X-pense manager
 
 a small javascript project which is very usefull to view our expenses  percentage by category
 
