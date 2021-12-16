@@ -3,6 +3,8 @@
 
 a small javascript project which is very usefull to view our expenses  percentage by category
 
+
+https://jsmini2.netlify.app/
 ## Authors
 
 - [padmakar kasture](https://github.com/padmakarkasture)
